@@ -10,3 +10,22 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+ul li {
+    border: 0.5px solid salmon;
+    list-style: none;
+    padding: 5px;
+   }
+   
+   ul {
+       margin-bottom: 0;
+   }
+   input {
+       border: none;
+       width: 100%;
+       padding: 2px;
+   }
+   
+   i {
+       margin-left: 90px;
+       color: red;
+   }
