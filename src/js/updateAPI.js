@@ -7,15 +7,16 @@ export const fetchTasks = async (setTasks) => {
         if (!response.ok) {
             throw new Error(`Failed to FETCH the tasks ${response.status} ${response.statusText}`);
         }
-        const data = response.json();
+        const data = await response.json();
         setTasks(Array.isArray(data.todos) ? data.todos : []);
+        console.log("fetch data from API: ", data);
     } catch (error) {
         console.log("Error CATCHING tasks", error.message);
-        handleCreateUser(setTasks);
+        //handleCreateUser(setTasks);
     }
 };
 
-export const addTasks = async (tasks, setTasks, newTasks) => {
+export const addTasks = async (tasks, newTasks, setTasks) => {
     if (typeof newTasks === "string" && newTasks.trim() !== "") {
         try {
             const response = await fetch(`https://playground.4geeks.com/todo/todos/justicetrace`, {
@@ -92,7 +93,7 @@ export const addTasks = async (tasks, setTasks, newTasks) => {
             throw new Error("error creating user API");
         } 
 
-        console.log("User has been created successfully in API");
+        console.log("User, justicetrace, has been created successfully in API");
         fetchTasks(setTasks);
     } catch (error) {
         console.error("Error creating user in API:", error);
